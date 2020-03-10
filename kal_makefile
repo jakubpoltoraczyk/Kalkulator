@@ -1,0 +1,15 @@
+#Makefile dla programu: Kalkulator RPN
+CC=gcc
+COPTIONS=-Wall
+all: kalc clean
+kalkulator_modul.o: kalkulator_modul.c kalkulator_modul.h
+	$(CC) -c $(COPTIONS) kalkulator_modul.c
+
+kalkulator.o: kalkulator.c kalkulator_modul.h
+	$(CC) -c $(COPTIONS) kalkulator.c
+
+kalc: kalkulator.o kalkulator_modul.o
+	$(CC) $(COPTIONS) -o kalc kalkulator_modul.o kalkulator.o
+
+clean:
+	@rm -f *.o *~

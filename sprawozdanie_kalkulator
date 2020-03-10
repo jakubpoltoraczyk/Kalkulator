@@ -1,0 +1,78 @@
+Sprawozdanie dotyczace programu pt. "Kalkulator RPN"
+Autor: Jakub Poltoraczyk
+Data wykonania programu: 23.12.19
+
+Charakterystyka programu:
+Program ma na celu odzwierciedlac czterodzialaniowy kalkulator RPN w zakresie liczb 9 cyfrowych, oparty w swojej konstrukcji na stosie, obslugiwanym za pomoca listy jednokierunkowej. Oprocz standardowych operacji arytmetycznych tj. dodawania, odejmowania, mnozenie i dzielenia, oraz dodawania elementow do stosu, kalkulator wyposazony jest w dodatkowe funkcje zwiekszajace jego funkcjonalnosc. Naleza do nich: wyswietlenie zawartosci calego stosu, wyswietlenie szczytu stosu, zamiana miejscami dwoch argumentow na szczycie stosu, usuniecie zawartosci calego stosu, usuniecie szczytu stosu, zduplikowanie szczytu stosu, oraz wyswietlenie menu programu. Dla wygody uzytkownika dostepne sa jednoczesnie dwa stosy, z mozliwoscia wygodnego przelaczania sie miedzy nimi, a ponadto mozliwosc przesylania szczytu danego stosu do stosu drugiego.
+
+Testy dzialania programu:
+ 
+Test nr 1: 
+Opis: Sprawdzenie operacji dodawania elementow do stosu, wyswietlania zawartosci calego stosu, realizacji kolejnosci podawanych operacji, oraz wyjscia z programu
+Wprowadzane dane: 2 3 <enter> 45 -6 <enter> 9 f 8 q
+Rezultat: W wyniku wywolania funkcji 'f' wyswietlono: 9 -6 45 3 2, a nastepnie nastapilo wyjscie z programu
+Wnioski: Program poprawnie wczytuje wprowadzane dane do stosu, wyswietla zawartosc calego stosu, realizuje kolejnosc wprowadzanych operacji (liczba 8 nie zostala wyswietlona), a takze poprawnie nastepuje zamkniecie programu
+
+Test nr 2:
+Opis: Sprawdzenie operacji arytmetycznych oraz wyswietlania szczytu stosu
+Wprowadzane dane: 2 3 + 5 * f <enter> 8 - p <enter> 5 6 / f q
+Rezultat: W wyniku pierwszego wywolania funkcji 'f' wyswietlono: 25, w wyniku wywolania funkcji 'p' -17, a w wyniku drugiego wywolania funkcji 'f' wyswietlono: 1 -17
+Wnioski: Program poprawnie przeprowadza zadane operacje arytmetyczne oraz wyswietla szczyt stosu
+
+Test nr 3:
+Opis: Sprawdzenie operacji zduplikowania szczytu stosu, zamiany miejscami dwoch pierwszych elementow stosu, oraz braku odstepu miedzy podaniem kolejnego elementu a operacja
+Wprowadzane dane: 2 -6 d 5 f 7r 9 f q
+Rezultat: W wyniku pierwszego wywolania funkcji 'f' wyswietlono: 5 -6 -6 2, a w wyniku drugiego wywolania funkcji 'f' wyswietlono: 9 5 7 -6 -6 2
+Wnioski: Program poprawnie przeprowadza operacje duplikowania szczytu stosu, zamiany miejscami dwoch pierwszych elementow stosu, oraz ignoruje brak odstepu miedzy wprowadzanym elementem, a operacja
+
+Test nr 4:
+Opis: Sprawdzenie operacji usuniecie elementu na szczycie stosu, oraz usuniecie zawartosci calego stosu
+Wprowadzane dane: 23 -4 -89 Pf 89 0 cfq
+Rezlutat: W wyniku pierwszego wywolania funkcji 'f' wyswietlono: -4 23, a wyniku drugiego wywolania funkcji 'f' wyswietlono komunikat o pustym stosie
+Wnioski: Program poprawnie usuwa szczyt stosu, oraz zawartosc calego stosu
+
+Test nr 5:
+Opis: Sprawdzenie wyswietlania menu programu, przelaczania sie miedzy stosami, oraz wykonywania operacji na poszczegolnych stosach
+Wprowadzane dane: 2 3 m -6 +fx <enter> f 5 4 + f x + fq
+Rezultat: Wpierw zostalo wyswietlone menu programu, w wyniku pierwszego wywolania funkcji 'f' wyswietlono: -3 2, wyniku drugiego wywolania funkcji 'f' wyswietlono: komunikat o pustym stosie, w wyniku trzeciego wywolania funkcji 'f' wyswietlono: 9, a w wyniku czwartego wywolania funkcji 'f' wyswietlono: -1  
+Wnioski: Program poprawnie wyswietla menu kalkulatora, przelacza sie miedzy stosami i wykonuje operacje na odpowiednim stosie, nie zmieniajac nic w drugim stosie
+
+Test nr 6:
+Opis: Sprawdzenie transportowania pierwszych elementow poszczegolnych stosow, oraz wykonywanie pozniejszych operacji
+Wprowadzane dane: 2 3 4 x -5 6 t x f + 6 5 f <enter> t x * fq
+Rezultat: W wyniku pierwszego wywolania funkcji 'f' wyswietlono: 6 4 3 2, w wyniku drugiego wywolania funkcji 'f' wyswietlono: 5 6 10 3 2, a w wyniku trzeciego wywolania funkcji 'f' 
+wyswietlono: 30 -5
+Wnioski: Program poprawnie wykonuje transportowanie szczytu danego stosu do stosu drugiego, oraz wszelkie operacje na podanych stosach sa wykonywane juz z uwzglednieniem transportowania
+
+Test nr 7:
+Opis: Sprawdzenie zduplikowania oraz usuniecie szczytu pustego stosu
+Wprowadzane dane: d 5 PPd q
+Rezultat: W wyniku pierwszego i drugiego wywolania funkcji 'd' oraz drugiego wywolania funkcji 'P' zostal wyswietlony komunikat o niemozliwosci wykonania podanej operacji, ze wzgledu na pusty stos
+Wnioski: Program uniemozliwia wykonanie usuniecie i zduplikowania szczytu stosu na pustym stosie
+
+Test nr 8:
+Opis: Sprawdzenie wykonania dowolnej operacji arytmetycznej lub zamiany miejscami dwoch pierwszych elementow stosu, w przypadku istnienia na stosie jednego lub zera elementow
+Wprowadzane dane: r * 5 + / - r q
+Rezultat: W wyniku pierwszego wywolania funkcji: '+', '-', '*', '/', 'r' oraz drugiego wywolania funkcji 'r' zostal wyswietlony komunikat o niemozliwosci wykonania podanej operacji ze wzgledu na brak dostatecznej ilosci elementow na stosie
+Wnioski: Program uniemozliwia wykonanie operacji arytmetycznej oraz zamiany miejscami elementow szczytu stosu, na ktorym znajduje sie jeden lub mniej element
+
+Test nr 9:
+Opis: Sprawdzenie wykonania operacji usuniecia i wyswietlenia zawartosci calego stosu oraz wyswietlenia szczytu stosu przy istnieniu pustego stosu
+Wprowadzane dane: c f p q
+Rezultat: W wyniku pierwszego wywolania funkcji: 'c' wyswietlono komunikat o niemozliwosci wykonania operacji ze wzgledu na pusty stos, a w wyniku pierwszego wywolania funkcji: 'p' i 'f' wyswietlono komunikat o pustym stosie
+Wnioski: Program w przypadku prosby o wyswietlenie zawartosci pustego stosu, lub szczytu pustego stosu wyswietla komunikat o pustym stosie, a w przypadku proby usuniecie pustego stosu, uniemozliwia wykonanie zadanej operacji wyswietlajac komunikat o bledzie
+
+Test nr 10:
+Opis: Sprawdzenie wykonania transportacji szczytu pustego stosu
+Wprowadzane dane: t x f q
+Rezultat: W wyniku wywolania funkcji 't' wyswietlono komunikat o niemozliwosci wykonania podanej operacji ze wzgledu na pusty stos, a w wyniku wywolania funkcji 'f' wyswietlono komunikat o pustym stosie
+Wnioski: Program nie transportuje szczytu pustego stosu do stosu drugiego
+
+Test nr 11:
+Opis: Sprawdzenie dzielenia przez zero
+Wprowadzane dane: 0 <enter> 5/q
+Rezultat: W wyniku wywolania funkcji '/' wyswietlono komunikat o niemozliwosci wykonania dzielenia przez zero
+Wnioski: Program uniemozliwia wykonywanie dzielenia przez zero
+
+Podsumowanie:
+Srednia poprawnosc wykonanych testow wynosi 100%. Swiadczy to o bezblednosci programu w oparciu o jego zalozenia.
